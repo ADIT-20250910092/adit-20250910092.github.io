@@ -1,0 +1,106 @@
+:root {
+  --bg: #0b1020;
+  --bg2: #121a33;
+  --card: #172042;
+  --text: #e8ecf8;
+  --muted: #98a3c7;
+  --a: #7c5cff;
+  --b: #19d3c5;
+  --font: "Poppins", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--b); outline-offset: 3px; }
+
+.grad {
+  background: linear-gradient(90deg, var(--a), var(--b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 1.25rem;
+  background: rgba(11, 16, 32, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.logo { font-weight: 800; font-size: 1.4rem; }
+.logo span { color: var(--b); }
+.navbar nav { display: flex; align-items: center; gap: 1rem; }
+.navbar nav a { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+.navbar nav a:hover { color: var(--text); }
+.nav-cta {
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, var(--a), var(--b));
+  color: #fff !important;
+}
+@media (max-width: 40rem) {
+  .navbar nav a:not(.nav-cta) { display: none; }
+}
+
+/* Hero */
+.hero {
+  display: grid; gap: 2.5rem; align-items: center;
+  max-width: 64rem; margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(124, 92, 255, 0.25), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(25, 211, 197, 0.15), transparent 40%);
+}
+.hero-photo { order: -1; display: flex; justify-content: center; }
+.ring {
+  position: relative;
+  width: 14rem; height: 14rem;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--a), var(--b));
+  box-shadow: 0 0 60px rgba(124, 92, 255, 0.45);
+  animation: float 5s ease-in-out infinite;
+}
+.ring img, .initial {
+  position: absolute; inset: 6px;
+  width: calc(100% - 12px); height: calc(100% - 12px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.initial {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg2);
+  font-size: 5rem; font-weight: 800;
+}
+.badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border: 1px solid rgba(25, 211, 197, 0.5);
+  border-radius: 2rem;
+  color: var(--b);
+  font-size: 0.85rem; font-weight: 500;
+  margin-bottom: 1rem;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 9vw, 3.8rem);
+  font-weight: 800; line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.lead { max-width: 32rem; color: var(--muted); margin-bottom: 1.75rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  font-weight: 600; font-size: 0.95re
